@@ -11,7 +11,7 @@
         android:id="@+id/idRVorder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/watchlist_rv_item" />
+        tools:listitem="@layout/order_rv_item" />
 
     <ProgressBar
         android:id="@+id/idPBLoading"
@@ -32,7 +32,7 @@
         android:id="@+id/Orders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/Watchlist"
+        android:layout_toEndOf="@id/Watchlist"
         android:layout_alignParentBottom="true"
         android:text="Orders"
         />
@@ -42,14 +42,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/Orders"
+        android:layout_toEndOf="@id/Orders"
         android:text="Portfolio" />
 
     <Button
         android:id="@+id/Profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/Portfolio"
+        android:layout_toEndOf="@id/Portfolio"
         android:padding="1dp"
         android:layout_alignParentBottom="true"
         android:text="Profile"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,8 +9,6 @@
     tools:context=".Portfolio">
 
     <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/idCVPortfolio"
         android:layout_width="match_parent"
         android:layout_height="125dp"
@@ -18,7 +17,60 @@
         app:cardCornerRadius="4dp"
         app:cardElevation="3dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/idTVInvestedTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:padding="20dp"
+                android:text="Invested"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/idTVInvestedAmt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginStart="20dp"
+                android:padding="35dp"
+                android:text="0"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/idTVCurrent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="25dp"
+                android:padding="20dp"
+                android:text="Current"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/idTVCurrentAmt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="35dp"
+                android:padding="35dp"
+                android:text="0"
+                android:textColor="@color/white"
+                />
+
+
+
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
