@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blac_shade_1"
+    tools:context=".Portfolio">
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/idCVPortfolio"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/black_shade_2"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="3dp">
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVportfolio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/idCVPortfolio"
+        tools:listitem="@layout/portfolio_rv_item" />
+
+    <!--progress bar for loading indicator-->
+    <ProgressBar
+        android:id="@+id/idPBLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/Watchlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/Watchlist"
+        />
+    <Button
+        android:id="@+id/Orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/Watchlist"
+        android:layout_alignParentBottom="true"
+        android:text="@string/orders"
+        />
+
+    <Button
+        android:id="@+id/Portfolio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/Orders"
+        android:text="@string/portfolio" />
+
+    <Button
+        android:id="@+id/Profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/Portfolio"
+        android:padding="1dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/profile"
+        />
+</RelativeLayout>

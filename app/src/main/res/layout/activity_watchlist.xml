@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blac_shade_1"
+    tools:context=".Watchlist">
+
+    <!--edit text for searching our currency-->
+    <EditText
+        android:id="@+id/idEdtCurrency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:focusable="auto"
+        android:hint="Search Commodity"
+        android:minHeight="48dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+
+
+    <!--recycler view for displaying the list of currencies-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVcurrency"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/idEdtCurrency"
+        tools:listitem="@layout/watchlist_rv_item" />
+
+    <!--progress bar for loading indicator-->
+    <ProgressBar
+        android:id="@+id/idPBLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/Watchlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:text="@string/Watchlist"
+        />
+    <Button
+        android:id="@+id/Orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/Watchlist"
+        android:layout_alignParentBottom="true"
+        android:text="Orders"
+        />
+
+    <Button
+        android:id="@+id/Portfolio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/Orders"
+        android:text="Portfolio" />
+
+    <Button
+        android:id="@+id/Profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/Portfolio"
+        android:padding="1dp"
+        android:layout_alignParentBottom="true"
+        android:text="Profile"
+        />
+
+
+</RelativeLayout>
+

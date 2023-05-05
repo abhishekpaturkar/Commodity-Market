@@ -1,6 +1,4 @@
-package com.example.myapplication;
-
-package com.gtappdevelopers.cryptotracker;
+package com.example.commoditymarket;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -41,7 +39,7 @@ public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.Cu
         // this method is use to inflate the layout file
         // which we have created for our recycler view.
         // on below line we are inflating our layout file.
-        View view = LayoutInflater.from(context).inflate(R.layout.currency_rv_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.watchlist_rv_item, parent, false);
         return new CurrencyRVAdapter.CurrencyViewholder(view);
     }
 
@@ -50,8 +48,7 @@ public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.Cu
         // on below line we are setting data to our item of
         // recycler view and all its views.
         CurrencyModal modal = currencyModals.get(position);
-        holder.nameTV.setText(modal.getName());
-        holder.rateTV.setText("$ " + df2.format(modal.getPrice()));
+        holder.rateTV.setText("Rs " + df2.format(modal.getPrice()));
         holder.symbolTV.setText(modal.getSymbol());
     }
 
@@ -65,7 +62,7 @@ public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.Cu
     // on below line we are creating our view holder class
     // which will be used to initialize each view of our layout file.
     public class CurrencyViewholder extends RecyclerView.ViewHolder {
-        private TextView symbolTV, rateTV, nameTV;
+        private TextView symbolTV, rateTV;
 
         public CurrencyViewholder(@NonNull View itemView) {
             super(itemView);
@@ -73,7 +70,6 @@ public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.Cu
             // our text views along with its ids.
             symbolTV = itemView.findViewById(R.id.idTVSymbol);
             rateTV = itemView.findViewById(R.id.idTVRate);
-            nameTV = itemView.findViewById(R.id.idTVName);
         }
     }
 }

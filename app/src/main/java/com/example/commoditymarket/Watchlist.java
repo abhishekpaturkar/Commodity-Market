@@ -1,9 +1,11 @@
-package com.gtappdevelopers.cryptotracker;
+package com.example.commoditymarket;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -27,10 +29,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class Watchlist extends AppCompatActivity {
 
     // creating variable for recycler view,
     // adapter, array list, progress bar
+    private Button Button_Orders;
+    private Button Button_Portfolio;
+    private Button Button_Profile;
     private RecyclerView currencyRV;
     private EditText searchEdt;
     private ArrayList<CurrencyModal> currencyModalArrayList;
@@ -40,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_watchlist);
         searchEdt = findViewById(R.id.idEdtCurrency);
 
         // initializing all our variables and array list.
@@ -80,6 +85,33 @@ public class MainActivity extends AppCompatActivity {
                 filter(s.toString());
             }
         });
+        Button_Orders = (Button) findViewById(R.id.Orders);
+        Button_Orders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Watchlist.this, Orders.class);
+
+                startActivity(intent);
+            }
+        });
+        Button_Portfolio = (Button) findViewById(R.id.Portfolio);
+        Button_Portfolio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Watchlist.this, Portfolio.class);
+
+                startActivity(intent);
+            }
+        });
+        Button_Profile = (Button) findViewById(R.id.Profile);
+        Button_Profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Watchlist.this, Profile.class);
+
+                startActivity(intent);
+            }
+        });
     }
 
     private void filter(String filter) {
@@ -90,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         for (CurrencyModal item : currencyModalArrayList) {
             // on below line we are getting the item which are
             // filtered and adding it to filtered list.
-            if (item.getName().toLowerCase().contains(filter.toLowerCase())) {
+            if (item.getSymbol().toLowerCase().contains(filter.toLowerCase())) {
                 filteredlist.add(item);
             }
         }
@@ -107,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getData() {
+        loadingPB.setVisibility(View.VISIBLE);
         // creating a variable for storing our string.
         String url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
         // creating a variable for request queue.
@@ -126,26 +159,26 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0; i < dataArray.length(); i++) {
                         JSONObject dataObj = dataArray.getJSONObject(i);
                         String symbol = dataObj.getString("symbol");
-                        String name = dataObj.getString("name");
                         JSONObject quote = dataObj.getJSONObject("quote");
                         JSONObject USD = quote.getJSONObject("USD");
                         double price = USD.getDouble("price");
                         // adding all data to our array list.
-                        currencyModalArrayList.add(new CurrencyModal(name, symbol, price));
+                        currencyModalArrayList.add(new CurrencyModal( symbol, price));
                     }
                     // notifying adapter on data change.
                     currencyRVAdapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     // handling json exception.
                     e.printStackTrace();
-                    Toast.makeText(MainActivity.this, "Something went amiss. Please try again later", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Watchlist.this, "Something went amiss. Please try again later", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                loadingPB.setVisibility(View.GONE);
                 // displaying error response when received any error.
-                Toast.makeText(MainActivity.this, "Something went amiss. Please try again later", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Watchlist.this, "Something went amiss. Please try again later", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
@@ -153,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                 // in this method passing headers as
                 // key along with value as API keys.
                 HashMap<String, String> headers = new HashMap<>();
-                headers.put("X-CMC_PRO_API_KEY", "Enter your API key");
+                headers.put("X-CMC_PRO_API_KEY", "9cb94668-cc3d-4ad4-a800-d526299908a3");
                 // at last returning headers
                 return headers;
             }

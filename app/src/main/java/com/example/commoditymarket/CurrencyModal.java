@@ -1,26 +1,13 @@
-package com.example.myapplication;
-
-package com.gtappdevelopers.cryptotracker;
-
+package com.example.commoditymarket;
 public class CurrencyModal {
     // variable for currency name,
     // currency symbol and price.
-    private String name;
     private String symbol;
     private double price;
 
-    public CurrencyModal(String name, String symbol, double price) {
-        this.name = name;
+    public CurrencyModal( String symbol, double price) {
         this.symbol = symbol;
         this.price = price;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getSymbol() {

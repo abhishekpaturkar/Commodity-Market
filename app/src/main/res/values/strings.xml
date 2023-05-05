@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">MyApplication</string>
+    <string name="app_name">Commodity Market</string>
+    <string name="Watchlist">Watchlist</string>
+    <string name="symbol">Symbol</string>
+    <string name="orders">Orders</string>
+    <string name="portfolio">Portfolio</string>
+    <string name="profile">Profile</string>
 </resources>
