@@ -1,8 +1,20 @@
 <resources>
-    <string name="app_name">Commodity Market</string>
-    <string name="Watchlist">Watchlist</string>
+    <string name="app_name">Farmers\' Commodity Market</string>
+    <string name="watchlist">Watchlist</string>
     <string name="symbol">Symbol</string>
     <string name="orders">Orders</string>
     <string name="portfolio">Portfolio</string>
     <string name="profile">Profile</string>
+    <string name="search_commodity">Search Commodity</string>
+    <string name="login">Login</string>
+    <string name="sign_up_text">Not yet registered? Sign up now</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="log_in_text">Already registered? Log in now</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="email_id">Email ID</string>
+    <string name="contact_no">Contact No.</string>
+    <string name="create_username">Create username</string>
+    <string name="set_password">Set password</string>
 </resources>

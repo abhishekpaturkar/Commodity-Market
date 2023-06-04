@@ -1,44 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blac_shade_1"
+    android:background="@color/purple_500"
     tools:context=".Profile">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/idCVProfile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/custom_edittext"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="20dp">
+
+        <TextView
+            android:id="@+id/profileText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            android:textAlignment="center"
+            android:textColor="@color/app_theme"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVProfile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/idCVProfile"
+        tools:listitem="@layout/order_rv_item" />
+
+    <!--progress bar for loading indicator-->
+    <ProgressBar
+        android:id="@+id/idPBLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
     <Button
         android:id="@+id/Watchlist"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:text="@string/Watchlist"
-        />
+        android:layout_marginBottom="-8dp"
+        android:backgroundTint="@color/app_theme"
+        android:text="@string/watchlist"
+        android:textColor="@color/dark_blue_shade"
+        android:textColorHint="@color/dark_blue_shade" />
+
     <Button
         android:id="@+id/Orders"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/Watchlist"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:text="Orders"
-        />
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="-8dp"
+        android:layout_toEndOf="@id/Watchlist"
+        android:backgroundTint="@color/app_theme"
+        android:text="@string/orders"
+        android:textColor="@color/dark_blue_shade"
+        android:textColorHint="@color/dark_blue_shade" />
 
     <Button
         android:id="@+id/Portfolio"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="-8dp"
         android:layout_toEndOf="@id/Orders"
-        android:text="Portfolio" />
+        android:backgroundTint="@color/app_theme"
+        android:text="@string/portfolio"
+        android:textColor="@color/dark_blue_shade"
+        android:textColorHint="@color/dark_blue_shade" />
 
     <Button
         android:id="@+id/Profile"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/Portfolio"
-        android:padding="1dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:text="Profile"
-        />
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="-8dp"
+        android:layout_toEndOf="@id/Portfolio"
+        android:backgroundTint="@color/app_theme"
+        android:padding="1dp"
+        android:text="@string/profile"
+        android:textColor="@color/dark_blue_shade"
+        android:textColorHint="@color/dark_blue_shade" />
 
 </RelativeLayout>
